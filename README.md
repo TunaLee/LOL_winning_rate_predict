@@ -1,1 +1,1 @@
-# LOL_winning_rate_predict
+Predicting the winning rate before the game starts
