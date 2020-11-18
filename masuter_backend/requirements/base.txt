@@ -1,0 +1,55 @@
+# Python
+pytz==2020.1  # https://github.com/stub42/pytz
+python-slugify==4.0.1  # https://github.com/un33k/python-slugify
+Pillow==7.2.0  # https://github.com/python-pillow/Pillow
+argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
+redis==3.5.3  # https://github.com/andymccurdy/redis-py
+hiredis==1.1.0  # https://github.com/redis/hiredis-py
+timeago
+mojimoji
+geocoder
+iamport-rest-client
+workalendar
+coolsms
+boto3
+
+# Django
+# ------------------------------------------------------------------------------
+django
+django-environ
+
+# Django Settings
+django-cors-headers
+django-allauth
+django-push-notifications
+django-storages
+
+# Django Admin
+django-3-jet
+django-modeladmin-reorder
+django-import-export
+django-inline-actions
+django-nested-inline
+django-admin-rangefilter
+
+# Django Models
+django-model-utils
+django-annoying
+django-phonenumber-field[phonenumberslite]
+django-cleanup
+sorl-thumbnail
+
+# Django Views
+django-filter
+django-url-filter
+django-extra-fields
+
+# Django REST Framework
+# ------------------------------------------------------------------------------
+djangorestframework
+django-rest-auth[with-social]
+djangorestframework-jwt
+dry-rest-permissions
+drf-dynamic-fields
+django-rest-auth
+rest_condition
