@@ -20,6 +20,18 @@ class InputData(models.Model):
     counter_middle_champ = models.ForeignKey('champs.Champ', blank=True, null=True, verbose_name='상대팀 미드 챔피언', on_delete=models.CASCADE, related_name='counter_middle_champ')
     counter_carry_champ = models.ForeignKey('champs.Champ', blank=True, null=True, verbose_name='상대팀 원딜 챔피언', on_delete=models.CASCADE, related_name='counter_carry_champ')
     counter_support_champ = models.ForeignKey('champs.Champ', blank=True, null=True, verbose_name='상대팀 서포터 챔피언', on_delete=models.CASCADE, related_name='counter_support_champ')
+    team_id = models.IntegerField(blank=True, null=True, verbose_name='팀 ID')
+
+class SummonerData(models.Model):
+
+    #Basic
+    summoner1 = models.TextField(blank=True, null=True, verbose_name='입력된 소환사 아이디1')
+    summoner2 = models.TextField(blank=True, null=True, verbose_name='입력된 소환사 아이디2')
+    summoner3 = models.TextField(blank=True, null=True, verbose_name='입력된 소환사 아이디3')
+    summoner4 = models.TextField(blank=True, null=True, verbose_name='입력된 소환사 아이디4')
+    summoner5 = models.TextField(blank=True, null=True, verbose_name='입력된 소환사 아이디5')
 
 
-
+# class CrawlingData(models.Model):
+#
+#     # Basic

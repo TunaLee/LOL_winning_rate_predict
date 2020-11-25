@@ -11,7 +11,7 @@ from rest_framework import routers
 
 
 # Apps
-from backend.apps.inputdata.api.views import InputDataViewSet
+from backend.apps.inputdata.api.views import InputDataViewSet, SummonerDataViewSet
 from backend.apps.champs.api.views import ChampViewSet
 
 
@@ -19,6 +19,7 @@ from backend.apps.champs.api.views import ChampViewSet
 router = routers.DefaultRouter()
 router.register(r'InputData', InputDataViewSet, 'InputDataViewSet')
 router.register(r'Champ', ChampViewSet, 'ChampViewSet')
+router.register(r'SummonerData',SummonerDataViewSet,'SummonerDataViewSet')
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),

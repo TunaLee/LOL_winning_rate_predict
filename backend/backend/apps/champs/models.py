@@ -12,7 +12,7 @@ class Champ(models.Model):
 
     #Basic
     name = models.TextField(blank=True, null=True, verbose_name='챔피언 이름')
-    number = models.IntegerField(blank=True, null=True, verbose_name='챔피언 번호')
+    number = models.IntegerField(blank=True, verbose_name='챔피언 번호', primary_key=True)
     blue_WR = models.FloatField(blank=True, null=True, verbose_name='블루팀 승률')
     red_WR = models.FloatField(blank=True, null=True, verbose_name='레드팀 승률')
     more_50_WR = models.FloatField(blank=True, null=True, verbose_name='50판 이상 승률')
