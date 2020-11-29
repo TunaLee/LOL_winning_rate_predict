@@ -46,8 +46,13 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'LOL',
+        'USER': 'admin',
+        'PASSWORD': 'z213146!',
+        'PORT': '3306',
+        'HOST': 'database-2.cclxozq8hsjy.us-east-1.rds.amazonaws.com',
+
     }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405

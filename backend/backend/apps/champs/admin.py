@@ -15,6 +15,6 @@ class ChampRoleAdmin(admin.ModelAdmin):
 
 @admin.register(Champ)
 class ChampAdmin(admin.ModelAdmin):
-    list_display = ('name','blue_WR','red_WR','more_50_WR','AFK_rate')
+    list_display = ('name','blue_WR','red_WR','more_50_WR',)
     formfield_overrides = {models.TextField: {'widget': Textarea(attrs={'rows': 1, 'style': 'width: 70%;'})}, }
 
