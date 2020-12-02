@@ -1,5 +1,5 @@
 # Local
-from ..models import Champ,ChampRole
+from ..models import Champ
 from backend.modules.core.serializers import ModelSerializer
 
 class ChampSerializer(ModelSerializer):
@@ -8,11 +8,11 @@ class ChampSerializer(ModelSerializer):
         fields = '__all__'
 
 
-class ChampRoleSerializer(ModelSerializer):
-    cham = ChampSerializer(read_only=True)
-    class Meta:
-        model = ChampRole
-        fields = '__all__'
+# class ChampRoleSerializer(ModelSerializer):
+#     cham = ChampSerializer(read_only=True)
+#     class Meta:
+#         model = ChampRole
+#         fields = '__all__'
 
 
 

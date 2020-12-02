@@ -58,20 +58,25 @@ function WinLose() {
 
     const { TextArea } = Input;
     const click=()=>{
-        Api.post('InputData/',{...result,...summoner,...teamId})
+        Api.post('test/summoner/',{...result,...summoner,...teamId}).then((data)=>{
+            console.log(data)
+        });
     }
     const click2=()=>{
         console.log(summoners.input_text)
         let tmp = summoners.input_text.split('님이 로비에 참가하셨습니다.\n');
-        Api.post('SummonerData/',{
-            summoner1:tmp[0],
-            summoner2:tmp[1],
-            summoner3:tmp[2],
-            summoner4:tmp[3],
-            summoner5:tmp[4].replace("님이 로비에 참가하셨습니다.",''),
-
-        })
+        // api.post('test/summoner/',{
+        //     summoner1:tmp[0],
+        //     summoner2:tmp[1],
+        //     summoner3:tmp[2],
+        //     summoner4:tmp[3],
+        //     summoner5:tmp[4].replace("님이 로비에 참가하셨습니다.",''),
+        //
+        // }).then((res)=>{
+        //     console.log(res);
+        // });
         setUser(tmp);
+
     }
 
     React.useEffect(()=>{
@@ -116,14 +121,14 @@ function WinLose() {
             소환사 입력
         </button>
         </div>
-        
+
         <div style ={{'width':'50%'}}>
             <img src={choteam} width='160' style={{'margin-top':'30px'}}/>
         </div>
-        
-       
+
+
         <div className='teamselec' style={{'float':'left'}}>
-         
+
          <Col className="gutter-row" span={10}>
             <Select
                 showSearch
@@ -139,29 +144,29 @@ function WinLose() {
                 <option className='red' value='200'>레드팀(Red)</option>
             </Select>
          </Col>
-    
+
         </div>
         <div style={{'width':'15%', 'height':'80px','margin-left':'75%'}}>
                 <button className='predict' onClick={click}>
-                    <span>승률예측</span>    
+                    <span>승률예측</span>
                 </button>
         </div>
-        
-        
+
+
         <div className='champs'>
             <div style={{'width':'100%', 'font-size':'20px'}}>
                 <span className='champname'>챔피언명</span>
                 <span className='sumonname'>소환사명</span>
                 <span className='opchampname'>상대챔피언명</span>
             </div>
-        
+
         <div style={{'border-bottom':'2px solid rgb(50, 50, 126)'}}>
         <div>
             <div className='top'>
                 탑
             </div>
         <Row>
-        <Col span={8} className="our_top_champ">     
+        <Col span={8} className="our_top_champ">
             <Select
                 showSearch
                 // value={result.first}
@@ -183,7 +188,7 @@ function WinLose() {
             </Select>
         </Col>
             <Col span={8} className="our_top_summoner">
-        
+
                 <Select
                     showSearch
                     // value={result.first}
@@ -225,7 +230,7 @@ function WinLose() {
         </Row>
         </div>
         </div>
-        
+
         <div style={{'border-bottom':'2px solid rgb(50, 50, 126)'}}>
         <div>
             <div className='jungle'>
@@ -233,7 +238,7 @@ function WinLose() {
             </div>
         <Row>
             <Col span={8} className="our_jungle_champ">
-            
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -252,7 +257,7 @@ function WinLose() {
                 </Select>
             </Col>
             <Col span={8} className="our_jungle_summoner">
-                
+
                 <Select
                     showSearch
                     // value={result.first}
@@ -273,7 +278,7 @@ function WinLose() {
 
                 </Select>            </Col>
             <Col span={8}className="counter_jungle_champ">
-                 
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -298,14 +303,14 @@ function WinLose() {
 
         <div style={{'border-bottom':'2px solid rgb(50, 50, 126)'}}>
         <div>
-            
+
             <div className='mid'>
             미드
             </div>
         <Row>
             <Col span={8} className="our_middle_champ">
-            
-                
+
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -324,7 +329,7 @@ function WinLose() {
                 </Select>
             </Col>
             <Col span={8} className="our_middle_summoner">
-            
+
                 <Select
                     showSearch
                     // value={result.first}
@@ -345,7 +350,7 @@ function WinLose() {
 
                 </Select>            </Col>
             <Col span={8} className="counter_middle_champ">
-                 
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -375,7 +380,7 @@ function WinLose() {
                 </div>
         <Row>
             <Col span={8} className="our_carry_champ">
-            
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -394,7 +399,7 @@ function WinLose() {
                 </Select>
             </Col>
             <Col span={8} className="our_carry_summoner">
-                
+
                 <Select
                     showSearch
                     // value={result.first}
@@ -415,7 +420,7 @@ function WinLose() {
 
                 </Select>            </Col>
             <Col span={8} className="counter_carry_champ">
-                 
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -435,10 +440,10 @@ function WinLose() {
             </Col>
         </Row>
         </div>
-        </div>            
-        
+        </div>
+
         <div style={{'border-bottom':'2px solid rgb(50, 50, 126)'}}>
-        
+
         <div>
             <div className='sup'>
             서포터
@@ -464,7 +469,7 @@ function WinLose() {
                 </Select>
             </Col>
             <Col span={8} className="our_support_summoner">
-                
+
                 <Select
                     showSearch
                     // value={result.first}
@@ -485,7 +490,7 @@ function WinLose() {
 
                 </Select>            </Col>
             <Col span={8} className="counter_support_champ">
-                 
+
                 <Select
                     showSearch
                     style={{ width: 200 }}
@@ -507,8 +512,8 @@ function WinLose() {
                 </div>
             </div>
         </div>
-        
-        
+
+
         {/*<Tooltip title="승률예측">*/}
         {/*    <Button type="primary" shape="circle" icon={<SearchOutlined />} />*/}
         {/*</Tooltip>*/}
@@ -516,7 +521,7 @@ function WinLose() {
     </div>
     </>
   );
-  
+
 }
 
 

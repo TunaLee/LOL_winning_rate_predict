@@ -5,12 +5,12 @@ from django.forms import Textarea
 
 
 # Apps
-from .models import ChampRole, Champ
-
-@admin.register(ChampRole)
-class ChampRoleAdmin(admin.ModelAdmin):
-    list_display = ('title',)
-    formfield_overrides = {models.TextField: {'widget': Textarea(attrs={'rows': 1, 'style': 'width: 70%;'})}, }
+from .models import Champ
+#
+# @admin.register(ChampRole)
+# class ChampRoleAdmin(admin.ModelAdmin):
+#     list_display = ('title',)
+#     formfield_overrides = {models.TextField: {'widget': Textarea(attrs={'rows': 1, 'style': 'width: 70%;'})}, }
 
 
 @admin.register(Champ)

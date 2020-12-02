@@ -27,7 +27,7 @@ router.register(r'SummonerData',SummonerDataViewSet,'SummonerDataViewSet')
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
-    path('test/summoner/', SummonerView),
+    path('api/test/summoner/', SummonerView),
     path("api/", include(router.urls)),
     # path('login/', SignInViewSet.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

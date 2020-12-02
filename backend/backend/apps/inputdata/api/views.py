@@ -37,6 +37,7 @@ def SummonerView(request):
         summoners = request.data
 
         data = deserializer(summoners)
+        print(data)
         data2 = predict(data)
 
 
