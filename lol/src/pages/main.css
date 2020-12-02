@@ -1,0 +1,247 @@
+* {
+    margin:0 auto;
+    padding:0;
+    font-family: Roboto,Noto sans kr;
+}
+
+
+/* 로고 및 헤더 css */
+
+header{
+    background-color: #4D5898;
+    height: 95px;;
+    width: 100%;  
+    display: flex;
+}
+
+
+#logo {
+    position: absolute;
+    top:21px;
+    left:8%;
+    font-size: 30px;
+}
+#logo a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#logo a span {
+    font-size:35px;
+    padding: 3px;
+    font-family: 'IM Fell Double Pica SC', serif;
+      
+}
+
+/* 메뉴 css */
+
+.menus {
+    position: absolute;
+    top: 33px;
+    right: 5%; 
+    display: inline-block;
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    display:flex;   
+}
+
+.menus>li{
+    text-align:center;
+}
+
+.menus>li{
+    text-align:center;
+}
+
+.menu{
+    margin:20px 8px; ;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color:white;
+    cursor: pointer;
+}
+
+.menu:hover{
+    color:#495057;     
+}
+
+.menu:active, .menu.active{
+    color:#7096ff;
+}
+
+.hid-button{
+    z-index:2;
+    display:none;
+    position:absolute;
+    background-color:rgba(0, 64, 128, 0.5);
+}
+
+@media screen and (max-width:840px) { /*좁은 화면에서 */
+    header{
+        position:relative;
+    }
+    header.show{
+        height:120px;
+    }
+    .hid-button{
+        display:block;
+        right:30px;
+        top:20px;
+        width:50px;
+        height:40px;
+        color:white;
+    }
+    .menus{
+        top:60px;
+        left:20px;
+        min-width:360px; 
+    }
+    li>.menu{
+        display:none;
+        margin:10px;
+    }
+    li>.menu.show{
+        display:block;
+    }
+
+}
+@media screen and (max-width:465px) { /*더 좁은 화면에서 */
+    header.show{
+        height:140px;
+    }
+    .hid-button{
+        display:block;
+        right:20px;
+    }
+}
+
+/* content 부분 css */
+
+.content {
+    text-align: center;
+    padding-top: 50px;
+    min-height: 100%; 
+    padding-bottom: 25%;
+    box-sizing: content-box;
+}
+
+.content{
+    background-attachment: fixed;
+    background-image: url('images/forest3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* home 메뉴 css */
+
+.info {
+    background-color:  rgba(194, 207, 241, 0.7);
+    padding: 25px;;
+}
+
+.home h1, p{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+/* 블루레드 css */
+
+
+#position-selector{
+    
+    width: 490px;
+    height: 40px;
+    background-color: rgb(97, 97, 231,0.4);
+    border-radius: 10px;
+    padding-top:10px;
+    margin-bottom:25px;
+    zoom:1.1
+}
+
+#position-selector label{
+    text-align: center;
+    font-family: sans-serif;
+    color: rgb(45, 23, 126);
+    font-weight: bold;
+    padding-left:8px;
+}
+
+#position-selector span{
+    padding: 20px;
+}
+
+
+.rate{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border-collapse: collapse;
+    width: 72%;
+    background-color: rgba(218, 224, 240, 0.7);    
+}
+
+.rate th{
+    border-bottom: 1px solid black;
+    padding:10px;
+    height: 60px;
+}
+
+.rate td{
+    margin-top:5px;
+    padding:3px;
+    height: 15px;
+    font-family: sans-serif;
+    color:rgb(49, 49, 49);
+    
+}
+
+.blue[value]{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.blue[value]::-webkit-progress-value {
+    background-color: rgb(97, 97, 231);
+  }
+
+
+.red[value]{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.red[value]::-webkit-progress-value {
+    background-color: rgb(230, 78, 78);
+  }
+
+
+
+
+/* footer css */
+
+.footer {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    background-color: #483b55;
+    padding-top: 15px;
+}
+
+@media screen and (max-height:480px){
+    .footer{
+        height:40px;
+        padding-top:5px;
+    }
+}
+@media screen and (max-height:360px){
+    .footer{
+        position:static;
+        bottom:0;
+    }
+}
