@@ -8,3 +8,9 @@ django-url-filter
 django-filter
 django-debug-toolbar
 django-extensions
+
+beautifulsoup4
+lxml
+
+sklearn
+pandas

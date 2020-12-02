@@ -45,24 +45,29 @@ function App() {
 
     const { TextArea } = Input;
     const click=()=>{
-        api.post('InputData/',{...result,...summoner,...teamId})
+        api.post('test/summoner/',{...result,...summoner,...teamId}).then((data)=>{
+           console.log(data)
+        });
     }
     const click2=()=>{
         console.log(summoners.input_text)
         let tmp = summoners.input_text.split('님이 로비에 참가하셨습니다.\n');
-        api.post('SummonerData/',{
-            summoner1:tmp[0],
-            summoner2:tmp[1],
-            summoner3:tmp[2],
-            summoner4:tmp[3],
-            summoner5:tmp[4].replace("님이 로비에 참가하셨습니다.",''),
-
-        })
+        // api.post('test/summoner/',{
+        //     summoner1:tmp[0],
+        //     summoner2:tmp[1],
+        //     summoner3:tmp[2],
+        //     summoner4:tmp[3],
+        //     summoner5:tmp[4].replace("님이 로비에 참가하셨습니다.",''),
+        //
+        // }).then((res)=>{
+        //     console.log(res);
+        // });
         setUser(tmp);
+
     }
 
     React.useEffect(()=>{
-        api.get('Champ').then((data)=>{
+        api.get('api/Champ').then((data)=>{
             console.log(data.data.results)
 
             setChamps(data.data.results);
