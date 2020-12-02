@@ -75,7 +75,7 @@ function WinLose() {
     const click=()=>{ //예상승률을 Modal로 띄워주는 함수.
         Api.post('test/summoner/',{...result,...summoner,...teamId}).then((data)=>{
             console.log(data);
-            setWinrate(Math.round(data)); // 승률 데이터 추가. 정수화
+            setWinrate(Math.round(data.data)); // 승률 데이터 추가. 정수화
         }).then( (res) =>{showWinModal()
         }).catch( (err) => {console.log(err)});
     }
