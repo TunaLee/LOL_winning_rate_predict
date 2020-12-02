@@ -61,26 +61,25 @@ def deserializer(data):
     try:
         our_top_win, our_top_loss, our_top_WR = crawler(data['our_top_summoner'], str(data['our_top_champ']))
     except:
-        our_top_win, our_top_loss, our_top_WR = ['0W','0L',our_team_WR[0]]
+        our_top_win, our_top_loss, our_top_WR = ['0W','0L',f'{our_team_WR[0]*100}%']
     try:
         our_jungle_win, our_jungle_loss, our_jungle_WR = crawler(data['our_jungle_summoner'], str(data['our_jungle_champ']))
     except:
-        our_jungle_win, our_jungle_loss, our_jungle_WR = ['0W','0L',our_team_WR[1]]
+        our_jungle_win, our_jungle_loss, our_jungle_WR = ['0W','0L', f'{our_team_WR[1]*100}%']
     try:
         our_middle_win, our_middle_loss, our_middle_WR = crawler(data['our_middle_summoner'], str(data['our_middle_champ']))
     except:
-        our_middle_win, our_middle_loss, our_middle_WR = ['0W','0L',our_team_WR[2]]
+        our_middle_win, our_middle_loss, our_middle_WR = ['0W','0L',f'{our_team_WR[2]*100}%']
     try:
         our_carry_win, our_carry_loss, our_carry_WR = crawler(data['our_carry_summoner'], str(data['our_carry_champ']))
     except:
-        our_carry_win, our_carry_loss, our_carry_WR = ['0W','0L',our_team_WR[3]]
+        our_carry_win, our_carry_loss, our_carry_WR = ['0W','0L', f'{our_team_WR[3]*100}%']
     try:
         our_support_win, our_support_loss, our_support_WR = crawler(data['our_support_summoner'], str(data['our_support_champ']))
     except:
-        our_support_win, our_support_loss, our_support_WR = ['0W','0L',our_team_WR[4]]
-    print(our_top_win[:-1])
+        our_support_win, our_support_loss, our_support_WR = ['0W','0L',f'{our_team_WR[4]*100}%']
     match_cnt = int(our_top_win[:-1])+int(our_top_loss[:-1])+int(our_jungle_win[:-1])+int(our_jungle_loss[:-1])+int(our_middle_win[:-1])+int(our_middle_loss[:-1])+int(our_carry_win[:-1])+int(our_carry_loss[:-1])+int(our_support_win[:-1])+int(our_support_loss[:-1])
-    user_champ_WR = (int(our_top_WR[:-1]) + int(our_jungle_WR[:-1]) + int(our_middle_WR[:-1]) + int(our_carry_WR[:-1]) + int(our_support_WR[:-1]))/5
+    user_champ_WR = (int(float(our_top_WR[:-1])) + int(float(our_jungle_WR[:-1])) + int(float(our_middle_WR[:-1])) + int(float(our_carry_WR[:-1])) + int(float(our_support_WR[:-1])))/5
 
 
     with open('backend/apps/inputdata/api/LOL_Champ_Tier.json', 'rb') as f:
