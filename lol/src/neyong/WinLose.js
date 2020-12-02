@@ -12,7 +12,7 @@ import { Input } from 'antd';
 import { Modal, Button } from 'antd';
 
 function WinLose() {
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false); //설명하는 modal 관련
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -24,6 +24,21 @@ function WinLose() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const [isWinModalVisible, setIsWinModalVisible] = useState(false); //승률 출력 Modal
+  const [winrate, setWinrate] = useState(0); // 승률 
+  
+  const showWinModal = () => {
+    setIsWinModalVisible(true);
+  };
+
+  const handleWinOk = () => {
+    setIsWinModalVisible(false);
+  };
+
+  const handleWinCancel = () => {
+    setIsWinModalVisible(false);
   };
     const [user,setUser] = React.useState([]);
     const [champs, setChamps] = React.useState([]);
@@ -57,10 +72,12 @@ function WinLose() {
     })
 
     const { TextArea } = Input;
-    const click=()=>{
+    const click=()=>{ //예상승률을 Modal로 띄워주는 함수.
         Api.post('test/summoner/',{...result,...summoner,...teamId}).then((data)=>{
-            console.log(data)
-        });
+            console.log(data);
+            setWinrate(Math.round(data)); // 승률 데이터 추가. 정수화
+        }).then( (res) =>{showWinModal()
+        }).catch( (err) => {console.log(err)});
     }
     const click2=()=>{
         console.log(summoners.input_text)
@@ -150,6 +167,15 @@ function WinLose() {
                 <button className='predict' onClick={click}>
                     <span>승률예측</span>
                 </button>
+                <Modal
+            title="예상 승률"
+            visible={isWinModalVisible}
+            onOk={handleWinOk}
+            onCancel={handleWinCancel}
+            style={{'font-weight':'bold', 'font-size':'30px','background-color':'rgb(95, 103, 153)'}}
+            >
+                <p>예상 승률은 {winrate}% 입니다.</p>
+            </Modal>
         </div>
 
 
