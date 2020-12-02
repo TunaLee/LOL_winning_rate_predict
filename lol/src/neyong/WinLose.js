@@ -174,7 +174,7 @@ function WinLose() {
             onCancel={handleWinCancel}
             style={{'font-weight':'bold', 'font-size':'30px','background-color':'rgb(95, 103, 153)'}}
             >
-                <p>예상 승률은 {winrate}% 입니다.</p>
+                <p>소환사님, 이번 게임의 승률은 {winrate}% 입니다.</p>
             </Modal>
         </div>
 
