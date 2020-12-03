@@ -16,7 +16,7 @@ from rest_framework import status
 # Apps
 from backend.apps.inputdata.api.views import InputDataViewSet, SummonerDataViewSet
 from backend.apps.champs.api.views import ChampViewSet
-from backend.apps.inputdata.api.views import SummonerView
+from backend.apps.inputdata.api.views import SummonerView, SummonerByChampView
 
 
 # Main Section
@@ -28,6 +28,7 @@ router.register(r'SummonerData',SummonerDataViewSet,'SummonerDataViewSet')
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path('api/test/summoner/', SummonerView),
+    path('api/user/<name>', SummonerByChampView),
     path("api/", include(router.urls)),
     # path('login/', SignInViewSet.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

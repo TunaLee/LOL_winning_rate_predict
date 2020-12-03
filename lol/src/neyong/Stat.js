@@ -1,5 +1,5 @@
 import React from 'react';
-import Axios from 'axios';
+import Api from "pages/Api.js";
 import {Button, Table, AutoComplete, Modal } from 'antd';
 import 'antd/dist/antd.css';
 import 'pages/main.css'
@@ -7,8 +7,6 @@ import './Stat.css'
 import {ChampData,array_en, array_kr, array_en_simple, array_kr_simple} from './ChampData.jsx';
 import {LinkOutlined, SearchOutlined} from '@ant-design/icons';
 import summoner from 'images/summoner.png'
-
-const GetURL = 'http://localhost:5000/'
 
 function Stat(){
     const [isModalVisible, setIsModalVisible] = React.useState(false);
@@ -36,10 +34,11 @@ function Stat(){
     const submit_data = () =>{
         var timerec = new Date().getTime(); //시간 추가
         setTableData([{key:0, champion:'데이터 로딩중'}]);
-        Axios.get(GetURL+'user/'+value)
+        Api.get('user/'+value)
         .then(res =>{ 
             const { data } = res;
-            // console.log(data);
+            console.log(data, typeof(data));
+            // let data0 = JSON.parse(data) // 출력 결과는 스트링 형태로 나타난다. 따라서 parseㄹㄹ 한다.  
             setUserList(x => { // 중복검색되지 않은 데이터만 나타나게...
                 let val_list =x.map( y => y['value']);
                 try{
@@ -57,7 +56,7 @@ function Stat(){
             let res_champ = {...data}; //하드카피
             delete res_champ['time'] //time 정보는 삭제
             console.log(Object.entries(res_champ))
-            data['time']? //테이블 정보 갱신. 
+             //테이블 정보 갱신. 
                 setTableData(Object.entries(res_champ).map((val) => { //var i=0; ++i;
                 if (val && val[0]!=='time') {
                 var win_rate_val = Math.round( parseInt(val[1][0])*10000/( parseInt(val[1][0])+parseInt(val[1][1])))/100;
@@ -67,8 +66,7 @@ function Stat(){
                 {key:Object.keys(res_champ).indexOf(val[0]) , champion:val[0], win:val[1][0], lost:val[1][1], 
                  win_rate:win_rate}
                 : null);
-            })):
-            setTableData([])
+            }))
             console.log('조회시간', (new Date().getTime()-timerec)/1000);
         })
         .catch(error => console.log(1, error))

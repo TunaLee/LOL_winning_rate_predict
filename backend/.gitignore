@@ -324,4 +324,5 @@ backend/media/
 
 .pytest_cache/
 
-
+#private_database
+config/settings/database.py

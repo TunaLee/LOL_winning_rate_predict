@@ -40,9 +40,15 @@ def SummonerView(request):
         print(data)
         data2 = predict(data)
 
-
-
         return Response(data2)
+
+@api_view(['GET'])
+def SummonerByChampView(request, name):
+    data = crawler(name)
+
+    return Response(data)
+
+
 
 # class SummonerView(APIView):
 #     def get(self, request):

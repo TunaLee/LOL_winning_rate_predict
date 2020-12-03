@@ -143,10 +143,10 @@ def crawler(name, champion=None):
             user_dict[champ] = [win, lose, winrate]
     
     print(time.time()-starttime)
-    if champ == None:
-        return json.dumps(user_dict, ensure_ascii=False)
+    if champion == None:
+        return user_dict
     elif str(champion) in id_name_list.keys():
-        return user_dict[name_eng_simple[champion]]
+        return user_dict[name_eng_simple[str(champion)]]
     elif simplify(champion) in name_eng_simple.values():
         return user_dict[simplify(champion)]
     elif simplify(champion) in name_kor_simple.values():
